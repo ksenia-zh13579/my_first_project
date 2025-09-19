@@ -15,30 +15,29 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <header>
-        <!-- Скопируйте весь блок <header> из index.html -->
-        <a href="/">Логотип или название сайта</a>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Логотип или название сайта</a>
         <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item><a class="site-nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <!-- Простые "хлебные крошки" -->
-        <nav aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> →
-            <span>О нас</span>
+        <nav class="site-breadcrumbs" aria-label="Хлебные крошки">
+            <a class="site-breadcrumbs__item site-breadcrumbs__item_link" href="index.html">Главная</a> →
+            <span class="site-breadcrumbs__item">О нас</span>
         </nav>
         <h1>О нашей компании</h1>
-        <section>
+        <section class="site-section">
             <h2>Наша история</h2>
             <p>Текст о том, как все начиналось...</p>
         </section>
-        <section>
+        <section class="site-section">
             <h2>Наша команда</h2>
             <p>Текст о команде...</p>
         </section>
