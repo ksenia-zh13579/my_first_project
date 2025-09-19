@@ -20,9 +20,9 @@
         <!-- Главное меню навигации -->
         <nav class="site-nav" aria-label="Основная навигация">
             <ul class="site-nav__list">
-                <li class="site-nav__item><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item><a class="site-nav__link" href="about.html">О нас</a></li>
-                <li class="site-nav__item><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
@@ -94,9 +94,8 @@
                 <source 
                     srcset="./images/small.jpg 480w, ./images/large.jpg 800w" 
                     sizes="(max-width : 600px) 400px, 800px"
-                    type="image/jpeg" 
-                />
-                <img src="./images/fallback.jpg" alt="Fallback image" />
+                    type="image/jpeg">
+                <img src="./images/fallback.jpg" alt="Fallback image">
             </picture>
             <div class="hero">Тут должно быть фоновое изображение</div>
         </section>
@@ -114,7 +113,7 @@
         <section>
             <h2>Переключатель темы</h2>
             <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
-            <script defer>
+            <script>
                 const KEY='theme', btn=document.querySelector('.theme-toggle');
                 const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
                 // Автовыбор: системная тема или сохранённый выбор пользователя
