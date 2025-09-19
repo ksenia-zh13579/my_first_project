@@ -15,14 +15,14 @@
 </head>
 <body>
     <!-- Шапка сайта -->
-    <header>
-        <a href="/">Логотип или название сайта</a>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Логотип или название сайта</a>
         <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
@@ -30,29 +30,29 @@
     <main>
         <h1>Добро пожаловать на наш сайт!</h1>
         <!-- Секция 1 с якорем -->
-        <section id="services">
+        <section class="site-section" id="services">
             <h2>Наши услуги</h2>
             <p>Описание предоставляемых услуг...</p>
-            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
+            <a class="site-section__link_cta" href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
         </section>
         <!-- Секция 2 с якорем -->
-        <section id="portfolio">
+        <section class="site-section" id="portfolio">
             <h2>Портфолио</h2>
             <p>Примеры наших работ...</p>
         </section>
         <!-- Секция 3 с якорем -->
-        <section id="contacts">
+        <section class="site-section" id="contacts">
             <h2>Контактная информация</h2>
             <p>Наши контакты...</p>
             <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
         </section>
-        <section>
+        <section class="site-section">
             <!-- Кнопка открытия модалки -->
             <button id="openDialog" type="button">Написать нам</button>
             <!-- Модалка с формой -->
             <dialog id="contactDialog" aria-labelledby="dialogTitle">
                 <h2 id="dialogTitle">Обратная связь</h2>
-                <form id="contactForm" method="dialog" novalidate>
+                <form class="form" id="contactForm" method="dialog" novalidate>
                     <label for="name">Имя</label>
                     <input id="name" name="name" type="text" required minlength="2" 
                     autocomplete="given-name"
@@ -86,6 +86,49 @@
                     </div>
                 </form>
             </dialog>
+        </section>
+        <section>
+            <h2>Изображения</h2>
+            <p>1-е responsive изображение:</p>
+            <picture>
+                <source 
+                    srcset="./images/small.jpg 480w, ./images/large.jpg 800w" 
+                    sizes="(max-width : 600px) 400px, 800px"
+                    type="image/jpeg">
+                <img src="./images/fallback.jpg" alt="Fallback image">
+            </picture>
+            <div class="hero">Тут должно быть фоновое изображение</div>
+        </section>
+        <section>
+            <h2>Видео</h2>
+            <div class="media">
+                <iframe
+                src="https://rutube.ru/play/embed/b5d9ddf895e36a3ef2634fc18a4710bc/"
+                title="Видео о проекте"
+                allow="autoplay; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+        </section>
+        <section>
+            <h2>Переключатель темы</h2>
+            <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+            <script>
+                const KEY='theme', btn=document.querySelector('.theme-toggle');
+                const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+                // Автовыбор: системная тема или сохранённый выбор пользователя
+                if(localStorage.getItem(KEY)==='dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)){
+                    document.body.classList.add('theme-dark');
+                    btn?.setAttribute('aria-pressed','true');
+                }
+                // Переключение по кнопке с сохранением в localStorage
+                btn?.addEventListener('click', ()=>{
+                    const isDark=document.body.classList.toggle('theme-dark');
+                    btn.setAttribute('aria-pressed', String(isDark));
+                    localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                });
+            </script>
         </section>
     </main>
     <!-- Подвал сайта -->
